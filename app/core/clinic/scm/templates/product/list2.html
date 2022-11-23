@@ -1,0 +1,40 @@
+{% extends 'list2.html' %} {% load static %} {% block head_list %}
+
+<script src="{% static 'product/js/list.js' %}"></script>
+{% endblock %} {% block columns %}
+<!-- <th class="text-center" width: 10>Nro</th> -->
+<th>Categoria</th>
+<th>Marca</th>
+<th class="text-center" width:20px>Modelo</th>
+<th>Calidad</th>
+<th>Descripcion</th>
+<th>Precio venta</th>
+<th>Precio directo</th>
+<th>Precio indirecto</th>
+<th>Stock</th>
+<!-- <th class="text-center">Opciones</th> -->
+{% endblock %} {% block rows %} {% for i in object_list %}
+<tr>
+    <!-- <td>{{ i.id }}</td> -->
+    <td>{{ i.ncat }}</td>
+    <td>{{ i.nmar }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.ntic }}</td>
+    <td>{{ i.desc }}</td>
+    <!-- <td class="text-center">
+        <img src="{{ i.get_image }}" class="img-fluid d-block mx-auto" style="width: 20px; height: 20px;">
+    </td> -->
+    <td class="text-center">${{ i.price }}</td>
+    <td class="text-center">${{ i.priced }}</td>
+    <td class="text-center">${{ i.pricei }}</td>
+
+</tr>
+{% endfor %} {% block javascript_list %} {% endblock %} {% endblock %} {% block content_list_before %}
+<div class="row">
+    <div class="col-lg-3">
+        <div class="form-group">
+            <label>Categorias:</label> {{ form.cat }}
+        </div>
+    </div>
+</div>
+<hr> {% endblock %}
